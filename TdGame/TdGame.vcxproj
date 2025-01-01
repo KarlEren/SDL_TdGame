@@ -120,6 +120,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\thirdparty\cJSON\include;..\thirdparty\SDL2_ttf\include;..\thirdparty\SDL2_mixer\include;..\thirdparty\SDL2_image\include;..\thirdparty\SDL2_gfx\include;..\thirdparty\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,6 +137,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cJSON\json&amp;csv.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="managers\game_manager.h" />
+    <ClInclude Include="managers\manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
