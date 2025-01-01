@@ -1,0 +1,38 @@
+void test_json()
+{
+	std::ifstream file("test.json");//用输入文件流创建文件
+	if (!file.good())throw std::domain_error("File not found");//如果文件出错抛出异常
+	std::stringstream str_stream;//创建字符串流处理字符串
+	str_stream << file.rdbuf();//从文件缓冲区中写入字符串流
+	file.close();
+	cJSON* json_root = cJSON_Parse(str_stream.str().c_str());//创建json文件
+	cJSON*name=cJSON_GetObjectItem(json_root, "name");
+	cJSON*age=cJSON_GetObjectItem(json_root, "age");
+	cJSON*pets=cJSON_GetObjectItem(json_root, "pets");
+	std::cout << name->valuestring<<'\n';//string是key，valuestring是字符串
+	std::cout << age->valueint<<'\n';//这里值是int，所以用valueint
+	cJSON*item=nullptr;
+	cJSON_ArrayForEach(item, pets)//遍历pets并赋值给item
+	{
+		std::cout <<"\t"<<item->valuestring<<'\n';
+	}
+	
+}
+
+void test_csv()
+{
+	std::ifstream file("test.csv");
+	if (!file.good())throw std::domain_error("File not found");
+	std::string str_line;
+	while (std::getline(file, str_line))//从文件中按行读取
+	{
+		std::string str_grid;//单元格内容
+		std::stringstream str_stream(str_line);
+		while (std::getline(str_stream,str_grid,','))
+		{
+			std::cout<<'\t'<<str_grid<<'\n';
+		}
+			
+	}
+	file.close();
+}
