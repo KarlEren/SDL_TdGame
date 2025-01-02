@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="cJSON\cJSON.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map\Map.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="cJSON\json&amp;csv.txt" />
@@ -141,6 +142,8 @@
   <ItemGroup>
     <ClInclude Include="managers\game_manager.h" />
     <ClInclude Include="managers\manager.h" />
+    <ClInclude Include="Map\Map.h" />
+    <ClInclude Include="Map\tile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
